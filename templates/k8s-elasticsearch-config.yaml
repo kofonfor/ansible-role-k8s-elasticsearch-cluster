@@ -1,0 +1,9 @@
+master:
+  exposeHttp: true
+  persistence:
+    storageClass: "elasticsearch"
+
+data:
+  exposeHttp: true
+  persistence:
+    storageClass: "elasticsearch-data"

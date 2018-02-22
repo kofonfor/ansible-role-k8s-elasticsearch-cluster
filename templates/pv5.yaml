@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: elasticsearch-data-5
+  labels:
+    type: local
+spec:
+  storageClassName: elasticsearch-data
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/pvs/elasticsearch-cluster-pv-5"
