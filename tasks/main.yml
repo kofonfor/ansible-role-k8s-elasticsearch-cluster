@@ -1,3 +1,6 @@
+- name: checkout https://github.com/clockworksoul/helm-elasticsearch.git
+  git: repo=https://github.com/clockworksoul/helm-elasticsearch.git dest=/root/helm-elasticsearch
+
 - name: put /root/k8s-elasticsearch-config.yaml
   template: src=k8s-elasticsearch-config.yaml dest=/root/k8s-elasticsearch-config.yaml
 
@@ -73,5 +76,5 @@
   shell: helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
 
 - name: install an Elasticsearch cluster using a Helm chart
-  shell: helm install -f /root/k8s-elasticsearch-config.yaml incubator/elasticsearch --namespace {{ elasticsearch_cluster_namespace }} --name elasticsearch-cluster-release
+  shell: bash -c "cd /root && helm install -f /root/k8s-elasticsearch-config.yaml helm-elasticsearch --namespace {{ elasticsearch_cluster_namespace }} --name elasticsearch-cluster-release"
   when: result|failed

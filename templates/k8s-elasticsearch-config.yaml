@@ -1,9 +1,7 @@
-master:
-  exposeHttp: true
-  persistence:
-    storageClass: "elasticsearch"
+common:
+  stateful:
+    enabled: true
+    class: "elasticsearch"
 
-data:
-  exposeHttp: true
-  persistence:
-    storageClass: "elasticsearch-data"
+kibana:
+  enabled: false

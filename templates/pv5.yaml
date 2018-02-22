@@ -5,7 +5,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: elasticsearch-data
+  storageClassName: elasticsearch
   capacity:
     storage: 50Gi
   accessModes:
