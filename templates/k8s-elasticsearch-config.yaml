@@ -1,7 +1,0 @@
-common:
-  stateful:
-    enabled: true
-    class: "elasticsearch"
-
-kibana:
-  enabled: false

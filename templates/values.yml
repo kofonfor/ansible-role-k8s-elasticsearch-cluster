@@ -1,0 +1,15 @@
+master:
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    name: data
+    size: "1Gi"
+    storageClass: "{{ storage_class_name }}"
+
+data:
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    name: data
+    size: "3Gi"
+    storageClass: "{{ storage_class_name }}"
