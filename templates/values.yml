@@ -1,23 +1,15 @@
-master:
-  persistence:
-    enabled: true
-    accessMode: ReadWriteOnce
-    name: data
-    size: "1Gi"
-    storageClass: "{{ storage_class_name }}"
+replicas: {{ elasticsearch_data_replicas }}
 
-data:
-  replicas: {{ elasticsearch_data_replicas }}
-  persistence:
-    enabled: true
-    accessMode: ReadWriteOnce
-    name: data
-    size: "3Gi"
-    storageClass: "{{ storage_class_name }}"
-  heapSize: "{{ elasticsearch_data_heapsize }}"
+resources:
+  limits:
+    cpu: "{{ elasticsearch_data_cpus }}"
+  requests:
+    cpu: "25m"
+    memory: "{{ elasticsearch_data_memory_limit }}"
+
+volumeClaimTemplate:
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: {{ storage_class_name }}
   resources:
-    limits:
-      cpu: "{{ elasticsearch_data_cpus }}"
     requests:
-      cpu: "25m"
-      memory: "{{ elasticsearch_data_memory_limit }}"
+      storage: 1Gi

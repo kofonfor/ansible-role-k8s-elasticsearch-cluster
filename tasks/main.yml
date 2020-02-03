@@ -1,5 +1,8 @@
+- name: enable Elastic repo
+  command: helm repo add elastic https://helm.elastic.co
+
 - name: put values
   template: src=values.yml dest=/tmp/elasticsearch-{{ elasticsearch_helm_release }}.yml
 
 - name: upgrade {{ elasticsearch_helm_release }} release using a Helm chart
-  command: helm upgrade {{ elasticsearch_helm_release }} stable/elasticsearch --install --namespace {{ k8s_namespace }} -f /tmp/elasticsearch-{{ elasticsearch_helm_release }}.yml
+  command: helm upgrade {{ elasticsearch_helm_release }} elastic/elasticsearch --install --namespace {{ k8s_namespace }} -f /tmp/elasticsearch-{{ elasticsearch_helm_release }}.yml
