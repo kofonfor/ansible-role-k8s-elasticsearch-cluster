@@ -2,3 +2,4 @@ elasticsearch_data_replicas: 2
 elasticsearch_data_heapsize: "1536m"
 elasticsearch_data_cpus: 1
 elasticsearch_data_memory_limit: "1536Mi"
+elasticsearch_image_tag: "7.5.2"

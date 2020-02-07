@@ -1,5 +1,7 @@
 replicas: {{ elasticsearch_data_replicas }}
 
+imageTag: "{{ elasticsearch_image_tag }}"
+
 resources:
   limits:
     cpu: "{{ elasticsearch_data_cpus }}"
